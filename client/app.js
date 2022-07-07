@@ -26,7 +26,8 @@ function onClickedEstimatePrice() {
     var location = document.getElementById("uiLocations");
     var estPrice = document.getElementById("uiEstimatedPrice");
 
-    var url = "http://127.0.0.1:5000/predict_home_price";
+    var url =
+        "https://blr-house-price-prediction-ml.herokuapp.com/predict_home_price";
 
     $.post(
         url,
@@ -49,7 +50,8 @@ function onPageLoad() {
     // console.log("document loaded");
     var div = document.getElementById("predicted");
     div.innerHTML = "<h2>Predicted Price</h2>";
-    var url = "http://127.0.0.1:5000/get_location_names";
+    var url =
+        "https://blr-house-price-prediction-ml.herokuapp.com/get_location_names";
     $.get(url, function (data, status) {
         // console.log("got response for get_location_names request");
         if (data) {
