@@ -3,6 +3,9 @@ import util
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "Hello, welcome to the server!"
 
 @app.route("/get_location_names", methods=["GET"])
 def get_location_names():
