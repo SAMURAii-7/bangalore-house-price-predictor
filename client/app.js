@@ -52,18 +52,20 @@ function onPageLoad() {
     div.innerHTML = "<h2>Predicted Price</h2>";
     var url =
         "https://blr-house-price-prediction-ml.herokuapp.com/get_location_names";
-    $.get(url, function (data, status) {
-        // console.log("got response for get_location_names request");
-        if (data) {
-            var locations = data.locations;
-            var uiLocations = document.getElementById("uiLocations");
-            $("#uiLocations").empty();
-            for (var i in locations) {
-                var opt = new Option(locations[i]);
-                $("#uiLocations").append(opt);
-            }
+
+    function dispLocation(data) {
+        var locations = data.locations;
+        $("#uiLocations").empty();
+        for (var i in locations) {
+            var opt = new Option(locations[i]);
+            $("#uiLocations").append(opt);
         }
-    });
+    }
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => dispLocation(data))
+        .catch((err) => console.log(err));
 
     $(document).ready(function () {
         $(".location").select2();
