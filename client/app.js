@@ -27,7 +27,7 @@ function onClickedEstimatePrice() {
     var estPrice = document.getElementById("uiEstimatedPrice");
 
     var url =
-        "https://blr-house-price-predictor-api.up.railway.app/predict_home_price";
+        "https://blr-housing-price-predictor-api.onrender.com/predict_home_price";
 
     $.post(
         url,
@@ -51,7 +51,7 @@ function onPageLoad() {
     var div = document.getElementById("predicted");
     div.innerHTML = "<h2>Predicted Price</h2>";
     var url =
-        "https://blr-house-price-predictor-api.up.railway.app/get_location_names";
+        "https://blr-housing-price-predictor-api.onrender.com/get_location_names";
 
     function dispLocation(data) {
         var locations = data.locations;
