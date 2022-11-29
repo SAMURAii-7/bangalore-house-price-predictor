@@ -1,3 +1,5 @@
+const apiUrl = "https://blr-house-price-predictor-api.up.railway.app/";
+
 function getBathValue() {
     var uiBathrooms = document.getElementsByName("uiBathrooms");
     for (var i in uiBathrooms) {
@@ -26,8 +28,7 @@ function onClickedEstimatePrice() {
     var location = document.getElementById("uiLocations");
     var estPrice = document.getElementById("uiEstimatedPrice");
 
-    var url =
-        "https://blr-housing-price-predictor-api.onrender.com/predict_home_price";
+    var url = apiUrl + "predict_home_price";
 
     $.post(
         url,
@@ -50,8 +51,7 @@ function onPageLoad() {
     // console.log("document loaded");
     var div = document.getElementById("predicted");
     div.innerHTML = "<h2>Predicted Price</h2>";
-    var url =
-        "https://blr-housing-price-predictor-api.onrender.com/get_location_names";
+    var url = apiUrl + "get_location_names";
 
     function dispLocation(data) {
         var locations = data.locations;
