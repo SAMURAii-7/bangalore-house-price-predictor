@@ -1,4 +1,4 @@
-const apiUrl = "https://blr-house-price-predictor-api.up.railway.app/";
+const apiUrl = "https://blr-housing-price-predictor-api.onrender.com";
 
 function getBathValue() {
     var uiBathrooms = document.getElementsByName("uiBathrooms");
