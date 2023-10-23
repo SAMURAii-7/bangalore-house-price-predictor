@@ -48,7 +48,7 @@ function onClickedEstimatePrice() {
 }
 
 function onPageLoad() {
-    // console.log("document loaded");
+    document.getElementById("loading-spinner").style.display = "block";
     var div = document.getElementById("predicted");
     div.innerHTML = "<h2>Predicted Price</h2>";
     var url = apiUrl + "get_location_names";
@@ -60,12 +60,18 @@ function onPageLoad() {
             var opt = new Option(locations[i]);
             $("#uiLocations").append(opt);
         }
+        document.getElementById("loading-spinner").style.display = "none";
+        $(".container").css("display", "flex");
     }
 
     fetch(url)
         .then((response) => response.json())
         .then((data) => dispLocation(data))
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err);
+            document.getElementById("loading-spinner").style.display = "none";
+            $(".container").css("display", "flex");
+        });
 
     $(document).ready(function () {
         $(".location").select2();
